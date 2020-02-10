@@ -1,0 +1,98 @@
+{
+  "equipments": [
+    {
+      "id": "fU5xnJ5",
+      "employeeId": 1,
+      "equipmentTypeId": 2,
+      "manufactorId": 1,
+      "serialNumber": "test",
+      "model": "dfvdfvfv",
+      "invoiceDate": "12.03.2020",
+      "guarantee": "12.03.2021"
+    },
+    {
+      "id": "YJvop8X",
+      "employeeId": 2,
+      "equipmentTypeId": 6,
+      "manufactorId": 2,
+      "serialNumber": "dssdsd",
+      "model": "df",
+      "invoiceDate": "df",
+      "guarantee": "df"
+    },
+    {
+      "id": "8WV9PsQ",
+      "employeeId": "1",
+      "equipmentTypeId": "2",
+      "manufactorId": "2",
+      "serialNumber": "h",
+      "model": "d",
+      "invoiceDate": "h",
+      "guarantee": "h"
+    },
+    {
+      "id": "mvtZedN",
+      "employeeId": "1",
+      "equipmentTypeId": "2",
+      "manufactorId": "2",
+      "serialNumber": "S12345678",
+      "model": "dsdcsdc",
+      "invoiceDate": "12.03.2020",
+      "guarantee": "12.03.2021"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "value": "Adan Agić"
+    },
+    {
+      "id": 2,
+      "value": "Elbin Hasić"
+    },
+    {
+      "id": 3,
+      "value": "Mahir Nukić"
+    }
+  ],
+  "equipmentTypes": [
+    {
+      "id": 1,
+      "value": "Laptop"
+    },
+    {
+      "id": 2,
+      "value": "Docking station"
+    },
+    {
+      "id": 3,
+      "value": "Monitor"
+    },
+    {
+      "id": 4,
+      "value": "Keyboard"
+    },
+    {
+      "id": 5,
+      "value": "Mouse"
+    },
+    {
+      "id": 6,
+      "value": "Headset"
+    },
+    {
+      "id": 7,
+      "value": "Memory"
+    }
+  ],
+  "manufactors": [
+    {
+      "id": 1,
+      "value": "Lenovo"
+    },
+    {
+      "id": 2,
+      "value": "Dell"
+    }
+  ]
+}
