@@ -3,10 +3,10 @@
     {
       "id": "fU5xnJ5",
       "employeeId": 1,
-      "equipmentTypeId": 2,
       "manufactorId": 1,
-      "serialNumber": "test",
+      "equipmentTypeId": 2,
       "model": "dfvdfvfv",
+      "serialNumber": "test",
       "invoiceDate": "12.03.2020",
       "guarantee": "12.03.2021"
     },
@@ -37,6 +37,38 @@
       "manufactorId": "2",
       "serialNumber": "S12345678",
       "model": "dsdcsdc",
+      "invoiceDate": "12.03.2020",
+      "guarantee": "12.03.2021"
+    },
+    {
+      "invoiceDate": "ewew",
+      "guarantee": "sa",
+      "employeeId": "1",
+      "equipmentTypeId": "2",
+      "manufactorId": "1",
+      "model": "test",
+      "serialNumber": "testt",
+      "id": "ol442NK",
+      "employee": {
+        "id": 1,
+        "value": "Adan Agić"
+      },
+      "equipmentType": {
+        "id": 2,
+        "value": "Docking station"
+      },
+      "manufactor": {
+        "id": 1,
+        "value": "Lenovo"
+      }
+    },
+    {
+      "id": "Bqi74UW",
+      "employeeId": "3",
+      "manufactorId": 1,
+      "equipmentTypeId": 2,
+      "model": "dfvdfvfv",
+      "serialNumber": "test",
       "invoiceDate": "12.03.2020",
       "guarantee": "12.03.2021"
     }

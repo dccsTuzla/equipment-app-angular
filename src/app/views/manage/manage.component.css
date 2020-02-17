@@ -1,0 +1,28 @@
+.form {
+  padding-top: 20px;
+  width: 500px;
+  margin: auto;
+}
+
+.form button {
+  height: 33px;
+  width: 130px;
+  margin-bottom: 30px;
+}
+
+.form button + button {
+  margin-left: 10px;
+}
+
+.form span {
+  font-style: italic;
+  font-size: 14px;
+}
+
+.form input,
+.form select {
+  height: 43px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}

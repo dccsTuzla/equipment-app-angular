@@ -1,7 +1,55 @@
 <table>
-  <div *ngFor="let item of equipment">
-    <td></td>
-    <td>{{item.employeeId}}</td>
-    <td>{{item.typeId}}</td>
-  </div>
+  <thead>
+    <tr>
+      <th></th>
+      <th>
+        Name
+        <br />
+        <select [formControl]="filterForm.controls.employeeId">
+          <option></option>
+          <option *ngFor="let employee of getDistinctEmployees()" [value]="employee.id">
+            {{employee.value}}
+          </option>
+        </select>
+      </th>
+      <th>
+        Type
+        <br />
+        <select [formControl]="filterForm.controls.equipmentTypeId">
+          <option></option>
+          <option *ngFor="let type of getDistinctEquipmentTypes()" [value]="type.id">
+            {{type.value}}
+          </option>
+        </select>
+      </th>
+      <th>
+        Manufactor
+        <br />
+        <select [formControl]="filterForm.controls.manufacturerId">
+          <option></option>
+          <option *ngFor="let manufacturer of getDistinctManufacturers()" [value]="manufacturer.id">
+            {{manufacturer.value}}
+          </option>
+        </select>
+      </th>
+      <th>Model</th>
+      <th>Serial number</th>
+      <th>Invoice data</th>
+      <th>Warranty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of getFilteredEquipment()">
+      <td>
+        <button (click)="editEquipment(item)">Edit</button>
+      </td>
+      <td>{{item.employee.value}}</td>
+      <td>{{item.equipmentType.value}}</td>
+      <td>{{item.manufactor.value}}</td>
+      <td>{{item.model}}</td>
+      <td>{{item.serialNumber}}</td>
+      <td>{{item.invoiceDate}}</td>
+      <td>{{item.guarantee}}</td>
+    </tr>
+  </tbody>
 </table>

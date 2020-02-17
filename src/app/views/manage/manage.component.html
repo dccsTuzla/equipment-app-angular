@@ -1,0 +1,63 @@
+<div class="form">
+  <div>
+    <button (click)="saveEquipment()">Save</button>
+    <button *ngIf="equipment?.id" (click)="deleteEquipment()">Delete</button>
+  </div>
+  
+  <div class="input-wrapper">
+    <span class="label">Employee: *</span>
+    <br />
+    <select [formControl]="form.controls.employeeId">
+      <option></option>
+      <option *ngFor="let employee of employees" [value]="employee.id">
+        {{employee.value}}
+      </option>
+    </select>
+  </div>
+  
+  <div class="input-wrapper">
+    <span class="label">Equipment type: *</span>
+    <br />
+    <select [formControl]="form.controls.equipmentTypeId">
+      <option></option>
+      <option *ngFor="let type of equipmentTypes" [value]="type.id">
+        {{type.value}}
+      </option>
+    </select>
+  </div>
+  
+  <div class="input-wrapper">
+    <span class="label">Manufactor: *</span>
+    <br />
+    <select [formControl]="form.controls.manufactorId">
+      <option></option>
+      <option *ngFor="let manufacturer of manufacturers" [value]="manufacturer.id">
+        {{manufacturer.value}}
+      </option>
+    </select>
+  </div>
+  
+  <div class="input-wrapper">
+    <span class="label">Model: *</span>
+    <br />
+    <input [formControl]="form.controls.model" />
+  </div>
+  
+  <div class="input-wrapper">
+    <span class="label">Serial number: *</span>
+    <br />
+    <input [formControl]="form.controls.serialNumber" />
+  </div>
+  
+  <div class="input-wrapper">
+    <span class="label">Invoice date: *</span>
+    <br />
+    <input [formControl]="form.controls.invoiceDate" />
+  </div>
+  
+  <div class="input-wrapper">
+    <span class="label">Warranty: *</span>
+    <br />
+    <input [formControl]="form.controls.guarantee" />
+  </div>
+</div>

@@ -2,6 +2,6 @@
   <a routerLink="">
     <img src="./assets/logo_dccs_white.png" />
   </a>
-  <a routerLink="/equipment/new" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Manage</a>
+  <a routerLink="/equipment/new" [class.active]="isEditingActive()">Manage</a>
   <a routerLink="equipment" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Overview</a>
 </div>

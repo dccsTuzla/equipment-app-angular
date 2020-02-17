@@ -1,10 +1,25 @@
-export interface Equipment {
+export interface IEquipmentBase {
   id: string;
-  employeeId: number;
-  equipmentTypeId: number;
-  manufactorId: number;
+  employeeId: number | string;
+  equipmentTypeId: number | string;
+  manufactorId: number | string;
   serialNumber: string;
   model: string;
-  invoiceDate: Date;
-  guarantee: Date;
+  invoiceDate: string;
+  guarantee: string;
+}
+
+interface ISimpleValue {
+  id: number;
+  value: string;
+}
+
+export type IEmployee = ISimpleValue;
+export type IEquipmentType = ISimpleValue;
+export type IManufacturer = ISimpleValue;
+
+export interface IEquipment extends IEquipmentBase {
+  employee: IEmployee;
+  equipmentType: IEquipmentType;
+  manufactor: IManufacturer;
 }
