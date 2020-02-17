@@ -14,7 +14,10 @@ export default class HeaderComponent {
   }
 
   isEditingActive() {
-    console.log(this.router.url);
     return /\/equipment\/.+/.test(this.router.url);
+  }
+
+  isOverviewActive() {
+    return this.router.url === '/equipment';
   }
 }

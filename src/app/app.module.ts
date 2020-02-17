@@ -4,12 +4,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import HeaderComponent from './components/header/header.component';
 import routes from './routes';
 import EquipmentService from './services/equipment.service';
 import OverviewComponent from './views/overview/overview.component';
 import EquipmentResolver from './views/manage/manage-equipment.resolver';
 import ManageComponent from './views/manage/manage.component';
+
+import { ToolbarModule } from 'primeng/toolbar';
+import { ButtonModule } from 'primeng/button';
+import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,15 @@ import ManageComponent from './views/manage/manage.component';
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
+
+    // primeng
+    ToolbarModule,
+    ButtonModule,
+    TableModule,
+    DropdownModule,
+    InputTextModule
   ],
   providers: [
     EquipmentService,

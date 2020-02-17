@@ -14,14 +14,14 @@
   margin-left: 10px;
 }
 
-.form span {
+.form label {
   font-style: italic;
   font-size: 14px;
 }
 
 .form input,
-.form select {
-  height: 43px;
+.form p-dropdown {
+  display: block;
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 10px;

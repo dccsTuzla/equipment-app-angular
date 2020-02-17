@@ -1,36 +1,6 @@
 {
   "equipments": [
     {
-      "id": "fU5xnJ5",
-      "employeeId": 1,
-      "manufactorId": 1,
-      "equipmentTypeId": 2,
-      "model": "dfvdfvfv",
-      "serialNumber": "test",
-      "invoiceDate": "12.03.2020",
-      "guarantee": "12.03.2021"
-    },
-    {
-      "id": "YJvop8X",
-      "employeeId": 2,
-      "equipmentTypeId": 6,
-      "manufactorId": 2,
-      "serialNumber": "dssdsd",
-      "model": "df",
-      "invoiceDate": "df",
-      "guarantee": "df"
-    },
-    {
-      "id": "8WV9PsQ",
-      "employeeId": "1",
-      "equipmentTypeId": "2",
-      "manufactorId": "2",
-      "serialNumber": "h",
-      "model": "d",
-      "invoiceDate": "h",
-      "guarantee": "h"
-    },
-    {
       "id": "mvtZedN",
       "employeeId": "1",
       "equipmentTypeId": "2",
@@ -41,36 +11,14 @@
       "guarantee": "12.03.2021"
     },
     {
-      "invoiceDate": "ewew",
-      "guarantee": "sa",
-      "employeeId": "1",
-      "equipmentTypeId": "2",
-      "manufactorId": "1",
-      "model": "test",
-      "serialNumber": "testt",
-      "id": "ol442NK",
-      "employee": {
-        "id": 1,
-        "value": "Adan Agić"
-      },
-      "equipmentType": {
-        "id": 2,
-        "value": "Docking station"
-      },
-      "manufactor": {
-        "id": 1,
-        "value": "Lenovo"
-      }
-    },
-    {
-      "id": "Bqi74UW",
-      "employeeId": "3",
-      "manufactorId": 1,
-      "equipmentTypeId": 2,
-      "model": "dfvdfvfv",
+      "id": "bWb1xPf",
+      "employeeId": 3,
+      "equipmentTypeId": 7,
+      "manufactorId": 2,
       "serialNumber": "test",
-      "invoiceDate": "12.03.2020",
-      "guarantee": "12.03.2021"
+      "model": "test",
+      "invoiceDate": "test",
+      "guarantee": "test"
     }
   ],
   "employees": [

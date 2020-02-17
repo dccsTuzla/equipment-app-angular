@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { IEquipment, IEmployee, IEquipmentType, IManufacturer } from 'src/app/types';
+import { IEmployee, IEquipmentType, IManufacturer, IEquipmentBase } from 'src/app/types';
 import EquipmentService from 'src/app/services/equipment.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { tap } from 'rxjs/operators';
+import { merge, forkJoin } from 'rxjs';
 
 @Component({
   templateUrl: './manage.component.html',
@@ -10,17 +12,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export default class ManageComponent implements OnInit {
 
-  equipment: IEquipment;
-
   employees: IEmployee[];
   equipmentTypes: IEquipmentType[];
   manufacturers: IManufacturer[];
 
   form = new FormGroup({
     id: new FormControl(undefined),
-    employeeId: new FormControl('', Validators.required),
-    manufactorId: new FormControl('', Validators.required),
-    equipmentTypeId: new FormControl('', Validators.required),
+    employee: new FormControl(undefined, Validators.required),
+    manufactor: new FormControl(undefined, Validators.required),
+    equipmentType: new FormControl(undefined, Validators.required),
     model: new FormControl('', Validators.required),
     serialNumber: new FormControl('', Validators.required),
     invoiceDate: new FormControl('', Validators.required),
@@ -37,18 +37,17 @@ export default class ManageComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe((data) => {
-      this.equipment = data.equipment;
 
       if (data.equipment) {
         this.form.setValue({
-          id: this.equipment.id,
-          employeeId: this.equipment.employeeId,
-          manufactorId: this.equipment.manufactorId,
-          equipmentTypeId: this.equipment.equipmentTypeId,
-          model: this.equipment.model,
-          serialNumber: this.equipment.serialNumber,
-          invoiceDate: this.equipment.invoiceDate,
-          guarantee: this.equipment.guarantee
+          id: data.equipment.id,
+          employee: data.equipment.employee,
+          manufactor: data.equipment.manufactor,
+          equipmentType: data.equipment.equipmentType,
+          model: data.equipment.model,
+          serialNumber: data.equipment.serialNumber,
+          invoiceDate: data.equipment.invoiceDate,
+          guarantee: data.equipment.guarantee
         });
       }
     });
@@ -62,17 +61,28 @@ export default class ManageComponent implements OnInit {
     if (!this.form.valid) {
       alert('there are some mandatory fields not filled');
     } else {
-      this.equipmentService.saveEquipment(this.form.value).subscribe(() => {
-        this.router.navigate(['/equipment']);
+      const data: IEquipmentBase = {
+        id: this.form.value.id,
+        employeeId: this.form.value.employee.id,
+        equipmentTypeId: this.form.value.equipmentType.id,
+        manufactorId: this.form.value.manufactor.id,
+        serialNumber: this.form.value.serialNumber,
+        model: this.form.value.model,
+        invoiceDate: this.form.value.invoiceDate,
+        guarantee: this.form.value.guarantee
+      }
+
+      this.equipmentService.saveEquipment(data).subscribe(() => {
         alert('data saved');
+        this.router.navigate(['/equipment']);
       });
     }
   }
 
   deleteEquipment() {
-    this.equipmentService.deleteEquipment(this.equipment).subscribe(() => {
-      this.router.navigate(['/equipment']);
+    this.equipmentService.deleteEquipment(this.form.value.id).subscribe(() => {
       alert('data deleted');
+      this.router.navigate(['/equipment']);
     });
   }
 }

@@ -1,63 +1,41 @@
 <div class="form">
   <div>
-    <button (click)="saveEquipment()">Save</button>
-    <button *ngIf="equipment?.id" (click)="deleteEquipment()">Delete</button>
+    <button pButton type="button" label="Save" routerLink="/equipment/new" (click)="saveEquipment()"></button>
+    <button *ngIf="form.value?.id" pButton type="Delete" label="Delete" routerLink="/equipment" class="ui-button-danger"(click)="deleteEquipment()"></button>
+  </div>
+
+  <div class="input-wrapper">
+    <label>Employee*</label>
+    <p-dropdown [formControl]="form.controls.employee" [options]="employees" dataKey="id" placeholder="Employee" optionLabel="value"></p-dropdown>
+  </div>
+
+  <div class="input-wrapper">
+    <label>Equipment type*</label>
+    <p-dropdown [formControl]="form.controls.equipmentType" [options]="equipmentTypes" dataKey="id" placeholder="Equipment type" optionLabel="value"></p-dropdown>
+  </div>
+
+  <div class="input-wrapper">
+    <label>Manufactor*</label>
+    <p-dropdown [formControl]="form.controls.manufactor" [options]="manufacturers" dataKey="id" placeholder="Manufactor" optionLabel="value"></p-dropdown>
   </div>
   
   <div class="input-wrapper">
-    <span class="label">Employee: *</span>
-    <br />
-    <select [formControl]="form.controls.employeeId">
-      <option></option>
-      <option *ngFor="let employee of employees" [value]="employee.id">
-        {{employee.value}}
-      </option>
-    </select>
+    <label for="model-input">Model*</label>
+    <input pInputText [formControl]="form.controls.model" type="text" size="30">
   </div>
-  
+
   <div class="input-wrapper">
-    <span class="label">Equipment type: *</span>
-    <br />
-    <select [formControl]="form.controls.equipmentTypeId">
-      <option></option>
-      <option *ngFor="let type of equipmentTypes" [value]="type.id">
-        {{type.value}}
-      </option>
-    </select>
+    <label for="serial-input">Serial number*</label>
+    <input pInputText [formControl]="form.controls.serialNumber" type="text" size="30">
   </div>
-  
+
   <div class="input-wrapper">
-    <span class="label">Manufactor: *</span>
-    <br />
-    <select [formControl]="form.controls.manufactorId">
-      <option></option>
-      <option *ngFor="let manufacturer of manufacturers" [value]="manufacturer.id">
-        {{manufacturer.value}}
-      </option>
-    </select>
+    <label for="invoice-input">Invoice date*</label>
+    <input pInputText [formControl]="form.controls.invoiceDate" type="text" size="30">
   </div>
-  
+
   <div class="input-wrapper">
-    <span class="label">Model: *</span>
-    <br />
-    <input [formControl]="form.controls.model" />
-  </div>
-  
-  <div class="input-wrapper">
-    <span class="label">Serial number: *</span>
-    <br />
-    <input [formControl]="form.controls.serialNumber" />
-  </div>
-  
-  <div class="input-wrapper">
-    <span class="label">Invoice date: *</span>
-    <br />
-    <input [formControl]="form.controls.invoiceDate" />
-  </div>
-  
-  <div class="input-wrapper">
-    <span class="label">Warranty: *</span>
-    <br />
-    <input [formControl]="form.controls.guarantee" />
+    <label for="guarantee-input">Warranty*</label>
+    <input pInputText [formControl]="form.controls.guarantee" type="text" size="30">
   </div>
 </div>

@@ -28,8 +28,8 @@ export default class EquipmentService {
     }
   }
 
-  deleteEquipment(equipment: IEquipmentBase): Observable<{}> {
-    return this.http.delete<{}>(`${EquipmentService.BASEURL}/equipments/${equipment.id}`);
+  deleteEquipment(equipmentId: string): Observable<{}> {
+    return this.http.delete<{}>(`${EquipmentService.BASEURL}/equipments/${equipmentId}`);
   }
 
   getEmployees(): Observable<IEmployee[]> {

@@ -1,19 +1,8 @@
-table {
-  width: 90%;
-  margin: auto;
-  margin-top: 20px;
+.container {
+  margin: 20px;
 }
 
-thead {
-  box-shadow: 0 3px 3px 0px rgba(0, 0, 0, 0.05);
-}
-
-td, th {
-  padding: 8px;
-  text-align: center;
-}
-
-tr:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  cursor: pointer;
+th:first-child,
+td:first-child {
+  width: 93px;
 }
