@@ -9,7 +9,7 @@ export interface IEquipmentBase {
   guarantee: string;
 }
 
-interface ISimpleValue {
+export interface ISimpleValue {
   id: number;
   value: string;
 }

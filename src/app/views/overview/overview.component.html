@@ -7,7 +7,7 @@
         <br />
         <select [formControl]="filterForm.controls.employeeId">
           <option></option>
-          <option *ngFor="let employee of getDistinctEmployees()" [value]="employee.id">
+          <option *ngFor="let employee of (employees | async)" [value]="employee.id">
             {{employee.value}}
           </option>
         </select>
@@ -17,7 +17,7 @@
         <br />
         <select [formControl]="filterForm.controls.equipmentTypeId">
           <option></option>
-          <option *ngFor="let type of getDistinctEquipmentTypes()" [value]="type.id">
+          <option *ngFor="let type of (equipmentTypes | async)" [value]="type.id">
             {{type.value}}
           </option>
         </select>
@@ -27,7 +27,7 @@
         <br />
         <select [formControl]="filterForm.controls.manufacturerId">
           <option></option>
-          <option *ngFor="let manufacturer of getDistinctManufacturers()" [value]="manufacturer.id">
+          <option *ngFor="let manufacturer of (manufacturers | async)" [value]="manufacturer.id">
             {{manufacturer.value}}
           </option>
         </select>
@@ -39,7 +39,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of getFilteredEquipment()">
+    <tr *ngFor="let item of (filteredEquipment | async)">
       <td>
         <button (click)="editEquipment(item)">Edit</button>
       </td>
