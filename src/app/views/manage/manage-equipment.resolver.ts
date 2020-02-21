@@ -4,11 +4,15 @@ import { Observable, of, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import EquipmentService from 'src/app/services/equipment.service';
 import { Injectable } from '@angular/core';
+import { EquipmentQuery } from 'src/app/store/equipment.store';
 
 @Injectable()
 export default class EquipmentResolver implements Resolve<IEquipment> {
 
-  constructor(private equipmentService: EquipmentService, private router: Router) {
+  constructor(
+    private equipmentQuery: EquipmentQuery,
+    private equipmentService: EquipmentService,
+    private router: Router) {
 
   }
 
@@ -17,8 +21,13 @@ export default class EquipmentResolver implements Resolve<IEquipment> {
 
     if (id === 'new') {
       return of(undefined);
+    } else if (!this.equipmentQuery.hasEntity()) {
+      return this.equipmentService.loadEquipment()
+        .pipe(map(() => null))
+        .pipe(() => of(this.equipmentQuery.getEntity(id)))
+        .pipe(catchError(this.handleError));
     } else {
-      return this.equipmentService.getEquipmentById(id).pipe(catchError(this.handleError));
+      return of(this.equipmentQuery.getEntity(id));
     }
   }
 

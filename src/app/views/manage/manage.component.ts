@@ -37,7 +37,6 @@ export default class ManageComponent implements OnInit {
 
   ngOnInit() {
     this.route.data.subscribe((data) => {
-
       if (data.equipment) {
         this.form.setValue({
           id: data.equipment.id,
@@ -70,7 +69,7 @@ export default class ManageComponent implements OnInit {
         model: this.form.value.model,
         invoiceDate: this.form.value.invoiceDate,
         guarantee: this.form.value.guarantee
-      }
+      };
 
       this.equipmentService.saveEquipment(data).subscribe(() => {
         alert('data saved');

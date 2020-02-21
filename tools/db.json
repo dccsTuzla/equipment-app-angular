@@ -11,12 +11,12 @@
       "guarantee": "12.03.2021"
     },
     {
-      "id": "bWb1xPf",
-      "employeeId": 3,
-      "equipmentTypeId": 7,
+      "id": "66O6ZVF",
+      "employeeId": 2,
+      "equipmentTypeId": 4,
       "manufactorId": 2,
       "serialNumber": "test",
-      "model": "test",
+      "model": "testtest",
       "invoiceDate": "test",
       "guarantee": "test"
     }

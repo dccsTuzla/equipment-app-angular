@@ -3,6 +3,7 @@ import EquipmentService from 'src/app/services/equipment.service';
 import { IEquipment, IEquipmentType, IEmployee, IManufacturer } from 'src/app/types';
 import { Router } from '@angular/router';
 import { FilterUtils } from 'primeng/utils'
+import { EquipmentQuery } from 'src/app/store/equipment.store';
 
 @Component({
   templateUrl: './overview.component.html',
@@ -17,11 +18,16 @@ export default class OverviewComponent implements OnInit {
 
   constructor(
     private equipmentService: EquipmentService,
+    private equipmentQuery: EquipmentQuery,
     private router: Router) {
   }
 
   ngOnInit() {
-    this.equipmentService.getEquipment().subscribe((equipment) => {
+    if (this.equipmentQuery.getCount() === 0) {
+      this.equipmentService.loadEquipment().subscribe();
+    }
+
+    this.equipmentQuery.selectAll().subscribe((equipment) => {
       this.equipment = equipment;
 
       const manufacturers = this.equipment.map(x => x.manufactor);
@@ -36,7 +42,7 @@ export default class OverviewComponent implements OnInit {
 
     FilterUtils['equals-by-id'] = (value, filter): boolean => {
       return value.id === filter.id;
-    }
+    };
   }
 
   public editEquipment(equipment: IEquipment) {
